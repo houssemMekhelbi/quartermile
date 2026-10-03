@@ -59,8 +59,8 @@ sudo pacman -S --needed $(grep -v '^#' quartermile-night/packages.txt)
 > Everything it replaces is backed up first.
 
 ```sh
-git clone https://github.com/houssemMekhelbi/hattin-quartermile.git
-cd hattin-quartermile
+git clone https://github.com/houssemMekhelbi/quartermile.git
+cd quartermile
 ./quartermile-night/restore.sh --dry-run   # show what would change, touch nothing
 ./quartermile-night/restore.sh             # apply quartermile-night
 ./quartermile-day/restore.sh               # or quartermile-day
