@@ -15,7 +15,7 @@
 
 setopt prompt_subst
 
-QM_DEFAULT_USER=${QM_DEFAULT_USER:-rahal}   # hide context on your own box
+QM_DEFAULT_USER=${QM_DEFAULT_USER:-$USER}   # hide context on your own box
 
 Q_SEL='#21242A'  Q_DEEP='#145A9C'  Q_ONDEEP='#F3F1EA' Q_AMBER='#FFB02E' Q_ONAMBER='#101113'
 Q_TEXT='#F3F1EA' Q_RED='#E5342B'   Q_ONRED='#0A0B0C'   Q_PLATE='#F3F1EA' Q_ONPLATE='#101113' Q_DIM='#7A828C'
