@@ -1,0 +1,4 @@
+name = QuartermileDayTree
+description = Quarter Mile day: a white arrow with a chrome outline, the starting tree counting down when busy
+version = 0.1
+cursors_directory = hyprcursors

@@ -1,0 +1,42 @@
+/* Quarter Mile day for GTK4 / libadwaita: named colours only, so apps keep their own
+ * layout while picking up the palette. The accent is the deep body blue (a
+ * fill, with light text on it). Warning, success and error are the tree's
+ * amber, green and red. */
+
+@define-color accent_color            #145A9C;
+@define-color accent_bg_color         #145A9C;
+@define-color accent_fg_color         #F8F6F0;
+
+@define-color destructive_color       #B3241C;
+@define-color destructive_bg_color    #E5342B;
+@define-color destructive_fg_color    #0A0B0C;
+@define-color success_color           #1A6E31;
+@define-color success_bg_color        #35C759;
+@define-color success_fg_color        #15171A;
+@define-color warning_color           #8A5200;
+@define-color warning_bg_color        #FFB02E;
+@define-color warning_fg_color        #15171A;
+@define-color error_color             #B3241C;
+@define-color error_bg_color          #E5342B;
+@define-color error_fg_color          #0A0B0C;
+
+@define-color window_bg_color         #F2EFE6;
+@define-color window_fg_color         #15171A;
+@define-color view_bg_color           #F8F6F0;
+@define-color view_fg_color           #15171A;
+@define-color headerbar_bg_color      #F8F6F0;
+@define-color headerbar_fg_color      #15171A;
+@define-color headerbar_border_color  #CFCABC;
+@define-color headerbar_backdrop_color #F2EFE6;
+@define-color sidebar_bg_color        #F2EFE6;
+@define-color sidebar_fg_color        #15171A;
+@define-color sidebar_border_color    #CFCABC;
+@define-color secondary_sidebar_bg_color #F2EFE6;
+@define-color card_bg_color           #F8F6F0;
+@define-color card_fg_color           #15171A;
+@define-color dialog_bg_color         #F8F6F0;
+@define-color dialog_fg_color         #15171A;
+@define-color popover_bg_color        #F8F6F0;
+@define-color popover_fg_color        #15171A;
+@define-color thumbnail_bg_color      #E4DFD1;
+@define-color borders                 #CFCABC;

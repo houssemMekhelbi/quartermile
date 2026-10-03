@@ -1,0 +1,295 @@
+/* Quarter Mile night bar. The tree is the only status grammar: white staged, amber the
+ * countdown, green go, red foul. The forms are the twin stripes, the chequer
+ * and chrome; nothing is cut on a slant. Three pods (left, centre, right) with
+ * fully round ends and a chrome ring that is light above and dark below: the
+ * ring is a gradient clipped to the border box under the face, which is
+ * clipped to the padding box (GTK3 draws no gradient border on a round box).
+ * The twin stripes run straight along each pod, faint behind the labels
+ * (pod-stripes.png, tiled) and solid at the outer end, where a two-column
+ * chequer strip finishes them (pod-left.png / pod-right.png). Workspaces are
+ * tree bulbs in a black housing, one image per state (quartermile-night/ws.css; all PNGs
+ * come from ~/.config/hypr/quartermile-night/build-art.py). Labels are Libre Franklin
+ * 600 caps (markup in config.jsonc), values Courier Prime bold. */
+
+@import url("quartermile-night/ws.css");
+
+@define-color ground #101113;
+@define-color panel  #17191C;
+@define-color face   #101113;
+@define-color pit    #0A0B0C;
+@define-color sel    #21242A;
+@define-color line   #31353C;
+@define-color ring   #5B616A;
+@define-color muted  #9AA0A8;
+@define-color text   #F3F1EA;
+@define-color bulb   #F3F1EA;
+@define-color deep   #145A9C;
+@define-color chrome #B9BEC6;
+@define-color ambert #FFB02E;
+@define-color greent #35C759;
+@define-color red    #E5342B;
+@define-color redt   #FF5348;
+
+* {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    min-height: 0;
+    font-family: "Libre Franklin", "IBM Plex Sans Arabic", "Source Code Pro", sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+tooltip {
+    background: alpha(@panel, 0.98);
+    border: 1px solid @chrome;
+    border-radius: 5px;
+}
+
+tooltip label {
+    padding: 4px 6px;
+    color: @text;
+    font-family: "Courier Prime", "Source Code Pro", monospace;
+    font-size: 13px;
+}
+
+/* ---- the pods ------------------------------------------------------------ */
+/* 38px pods in a 42px bar: a 3px chrome ring around a 32px face. Layers, top
+ * to bottom: the solid stripe end with its chequer, the faint stripes, the
+ * face, the ring. */
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 2px 0;
+    border: 3px solid transparent;
+    border-radius: 19px;
+    background-image: url("quartermile-night/pod-left.png"),
+                      url("quartermile-night/pod-stripes.png"),
+                      linear-gradient(@face, @face),
+                      linear-gradient(to bottom, #FFFFFF 0%, #B9BEC6 40%, #5B616A 100%);
+    background-repeat: no-repeat, repeat-x, no-repeat, no-repeat;
+    background-position: left center, left center, center, center;
+    background-size: 60px 32px, 8px 32px, 100% 100%, 100% 100%;
+    background-origin: padding-box, padding-box, padding-box, border-box;
+    background-clip: padding-box, padding-box, padding-box, border-box;
+    box-shadow: inset 0 0 0 1px #0A0B0C, inset 0 2px 3px alpha(#000000, 0.45);
+}
+
+.modules-left {
+    padding: 0 12px 0 70px;
+}
+
+.modules-right {
+    padding: 0 70px 0 12px;
+    background-image: url("quartermile-night/pod-right.png"),
+                      url("quartermile-night/pod-stripes.png"),
+                      linear-gradient(@face, @face),
+                      linear-gradient(to bottom, #FFFFFF 0%, #B9BEC6 40%, #5B616A 100%);
+    background-position: right center, left center, center, center;
+}
+
+.modules-center {
+    padding: 0 22px;
+    background-image: url("quartermile-night/pod-stripes.png"),
+                      url("quartermile-night/pod-stripes.png"),
+                      linear-gradient(@face, @face),
+                      linear-gradient(to bottom, #FFFFFF 0%, #B9BEC6 40%, #5B616A 100%);
+    background-repeat: repeat-x, repeat-x, no-repeat, no-repeat;
+    background-size: 8px 32px, 8px 32px, 100% 100%, 100% 100%;
+}
+
+window#waybar.empty #window {
+    padding: 0;
+}
+
+/* ---- workspaces: the tree ------------------------------------------------ */
+/* hattin-workspaces prints a glyph per slot; here the glyph is hidden and
+ * quartermile-night/ws.css gives every slot its bulb for the state: an unlit outline
+ * when empty, white when occupied (staged), amber when active on another
+ * monitor, green with a glow when focused, red when urgent. The housing is
+ * black in both variants, as a tree is. The foreign slot stays text: one ':'
+ * (the pre-stage pair) per workspace that lives on another monitor. */
+
+#workspaces {
+    margin: 4px 4px 4px 0;
+    padding: 0 6px;
+    border-radius: 4px;
+    background: @pit;
+    box-shadow: inset 0 0 0 1px #5B616A;
+}
+
+#custom-ws-1, #custom-ws-2, #custom-ws-3, #custom-ws-4, #custom-ws-5,
+#custom-ws-6, #custom-ws-7, #custom-ws-8, #custom-ws-9, #custom-ws-10 {
+    min-width: 20px;
+    padding: 0;
+    margin: 0;
+    color: transparent;
+    font-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 24px;
+}
+
+#custom-ws-x {
+    min-width: 0;
+    padding: 0 2px 0 4px;
+    color: @bulb;
+    font-family: "Courier Prime", "Source Code Pro", monospace;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+#custom-ws-x.active {
+    color: @ambert;
+}
+
+#custom-ws-1:hover, #custom-ws-2:hover, #custom-ws-3:hover, #custom-ws-4:hover,
+#custom-ws-5:hover, #custom-ws-6:hover, #custom-ws-7:hover, #custom-ws-8:hover,
+#custom-ws-9:hover, #custom-ws-10:hover {
+    background-color: alpha(#FFFFFF, 0.10);
+    border-radius: 3px;
+}
+
+/* ---- modules ------------------------------------------------------------------ */
+/* Plain text on the face, a short hairline between neighbours; values in the
+ * timeslip face. */
+
+#custom-mawaqit,
+#custom-proton,
+#custom-tailscale,
+#network,
+#wireplumber,
+#bluetooth,
+#cpu,
+#memory,
+#temperature,
+#custom-nvidia,
+#power-profiles-daemon,
+#battery,
+#custom-tray-leader,
+#custom-notifications,
+#custom-idle,
+#custom-yawm {
+    margin: 8px 0;
+    padding: 0 11px;
+    border-left: 1px solid @line;
+    color: @text;
+    font-family: "Courier Prime", "Source Code Pro", monospace;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* the first module of the right pod needs no hairline */
+#network {
+    border-left: none;
+}
+
+/* next prayer: city as a label, prayer muted, time in the text colour (markup
+ * from waybar-mawaqit); classes: soon (<15m, amber), iqama (green), error, unset. */
+#custom-mawaqit.error,
+#custom-mawaqit.unset {
+    color: @muted;
+}
+
+#window {
+    margin: 8px 0;
+    padding: 0 6px 0 11px;
+    border-left: 1px solid @line;
+    color: @muted;
+    font-size: 13px;
+}
+
+#clock {
+    padding: 0 8px;
+    color: @text;
+    font-family: "Courier Prime", "Source Code Pro", monospace;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#power-profiles-daemon {
+    color: @muted;
+}
+
+/* the tree: up is green, down is red */
+#custom-proton.up,
+#custom-tailscale.up,
+#custom-nvidia.active {
+    color: @greent;
+}
+
+#custom-proton.down,
+#custom-tailscale.down {
+    color: @redt;
+}
+
+/* due today: the countdown; overdue: the foul */
+#custom-yawm.due {
+    color: @ambert;
+}
+
+#custom-yawm.overdue {
+    color: @redt;
+}
+
+#custom-idle.off,
+#battery.warning {
+    color: @ambert;
+}
+
+#temperature.critical {
+    color: @redt;
+}
+
+#battery.critical {
+    margin: 6px 3px;
+    border-left: none;
+    border-radius: 3px;
+    background: @red;
+    color: #0A0B0C;
+}
+
+/* ---- click-to-reveal groups (NET, SYS, the tray mark) ---------------------------- */
+
+#custom-tray-leader {
+    color: @chrome;
+    font-family: "Source Code Pro", "DejaVu Sans Mono", monospace;
+    font-size: 13px;
+}
+
+#tray {
+    margin: 8px 0;
+    padding: 0 10px;
+}
+
+#network:hover,
+#cpu:hover,
+#custom-tray-leader:hover,
+#custom-mawaqit:hover,
+#custom-notifications:hover,
+#custom-idle:hover,
+#custom-yawm:hover {
+    background-color: alpha(@chrome, 0.16);
+}
+
+#tray menu {
+    background: @panel;
+    border: 1px solid @chrome;
+    border-radius: 5px;
+    color: @text;
+}
+
+#tray menu menuitem {
+    border-radius: 3px;
+}
+
+#tray menu menuitem:hover {
+    background: @deep;
+    color: #F3F1EA;
+}

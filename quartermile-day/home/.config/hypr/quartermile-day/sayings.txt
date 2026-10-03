@@ -1,0 +1,4 @@
+# Lines shown on the Quarter Mile lock screen, one per line, as written.
+# Blank lines and lines starting with # are skipped; with several lines the
+# line changes every 10 minutes.
+There's no replacement for displacement.

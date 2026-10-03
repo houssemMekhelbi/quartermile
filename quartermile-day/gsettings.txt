@@ -1,0 +1,8 @@
+# org.gnome.desktop.interface keys applied by restore.sh (captured 2026-09-19)
+gtk-theme='Adwaita'
+icon-theme='QuartermileDay'
+color-scheme='prefer-light'
+font-name='Libre Franklin 10'
+monospace-font-name='Source Code Pro 10'
+cursor-theme='QuartermileDayTree'
+cursor-size=24

@@ -1,0 +1,125 @@
+/* Quarter Mile day notifications: plates (radius 5) on the panel colour at 98% (a
+ * layer surface reads far more see-through than its alpha suggests) with a
+ * chrome hairline, sitting on the twin stripes: two lines along the lower
+ * edge. Urgency changes those lines only: the stripes for normal, the unlit
+ * ring colour for low, the tree's red for critical. Starts from the stock
+ * stylesheet. Blur comes from the Hyprland layer rule quartermile-notify-glass
+ * (^swaync). Reload after editing: swaync-client -rs */
+
+@import url("file:///etc/xdg/swaync/style.css");
+
+:root {
+  --cc-bg: rgba(242, 239, 230, 1.0);
+  --noti-border-color: rgb(90, 95, 102);
+  --noti-bg: 248, 246, 240;
+  --noti-bg-alpha: 0.98;
+  --noti-bg-darker: rgb(242, 239, 230);
+  --noti-bg-hover: rgb(228, 223, 209);
+  --noti-bg-focus: rgba(228, 223, 209, 0.8);
+  --noti-close-bg: rgb(228, 223, 209);
+  --noti-close-bg-hover: rgb(207, 202, 188);
+  --text-color: rgb(21, 23, 26);
+  --text-color-disabled: rgb(90, 95, 102);
+  --bg-selected: rgb(20, 90, 156);
+  --border: 1px solid var(--noti-border-color);
+  --border-radius: 5px;
+  --notification-shadow: 0 6px 18px rgba(21, 23, 26, 0.35);
+  --font-size-body: 13px;
+  --font-size-summary: 13px;
+}
+
+* {
+  font-family: "Libre Franklin", "IBM Plex Sans Arabic", sans-serif;
+}
+
+.notification-row .notification-background .notification {
+  background-color: rgba(248, 246, 240, 0.98);
+  border: 1px solid rgb(90, 95, 102);
+  border-radius: 5px;
+  padding: 2px 6px 6px 6px;
+  box-shadow: inset 0 -2px 0 rgb(30, 127, 214), inset 0 -3px 0 rgb(248, 246, 240), inset 0 -5px 0 rgb(30, 127, 214);
+}
+
+.notification-row .notification-background .notification.low {
+  box-shadow: inset 0 -2px 0 rgb(139, 136, 124), inset 0 -3px 0 rgb(248, 246, 240), inset 0 -5px 0 rgb(139, 136, 124);
+}
+
+.notification-row .notification-background .notification.critical {
+  box-shadow: inset 0 -2px 0 rgb(229, 52, 43), inset 0 -3px 0 rgb(248, 246, 240), inset 0 -5px 0 rgb(229, 52, 43);
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  border-radius: 4px;
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
+  font-weight: 600;
+  color: rgb(21, 23, 26);
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .time {
+  font-family: "Courier Prime", "Source Code Pro", monospace;
+  font-size: 12px;
+  font-weight: normal;
+  color: rgb(90, 95, 102);
+}
+
+.notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
+  color: rgb(90, 95, 102);
+}
+
+.close-button {
+  border-radius: 3px;
+}
+
+.control-center {
+  border: 1px solid rgb(90, 95, 102);
+  border-radius: 5px;
+}
+
+.widget-title > label {
+  font-family: "Ultra", serif;
+  font-size: 1.3rem;
+  color: rgb(21, 23, 26);
+}
+
+.widget-title > button,
+.widget-buttons-grid flowboxchild > button {
+  border-radius: 4px;
+  background: rgb(248, 246, 240);
+  color: rgb(21, 23, 26);
+  border: 1px solid rgb(207, 202, 188);
+}
+
+.widget-title > button:hover,
+.widget-buttons-grid flowboxchild > button:hover {
+  background: rgb(228, 223, 209);
+  border-color: rgb(90, 95, 102);
+}
+
+.widget-buttons-grid flowboxchild > button.toggle:checked {
+  background: rgb(20, 90, 156);
+  color: rgb(248, 246, 240);
+}
+
+.widget-dnd label {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgb(90, 95, 102);
+}
+
+.widget-dnd switch {
+  border-radius: 12px;
+  background: rgb(207, 202, 188);
+}
+
+.widget-dnd switch slider {
+  border-radius: 12px;
+  background: rgb(248, 246, 240);
+}
+
+.widget-dnd switch:checked {
+  background: rgb(53, 199, 89);
+}

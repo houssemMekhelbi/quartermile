@@ -1,0 +1,79 @@
+# Quarter Mile day terminal. Night at 96%, compositor blur behind it.
+
+[window]
+opacity = 0.96
+padding = { x = 16, y = 16 }
+decorations = "None"
+blur = true
+
+[font]
+normal = { family = "Source Code Pro", style = "Regular" }
+size = 10.5
+offset = { x = 0, y = 4 }
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+vi_mode_style = { shape = "Block" }
+thickness = 0.2
+
+[colors.primary]
+background = "#F2EFE6"
+foreground = "#24272C"
+bright_foreground = "#15171A"
+
+[colors.cursor]
+text = "#F2EFE6"
+cursor = "#15171A"
+
+[colors.selection]
+text = "#15171A"
+background = "#E4DFD1"
+
+# Search, hints, the footer bar and the vi-mode cursor in the theme's colours (alacritty's stock ones otherwise).
+[colors.search.matches]
+foreground = "#F2EFE6"
+background = "#145A9C"
+
+[colors.search.focused_match]
+foreground = "#F2EFE6"
+background = "#8A5200"
+
+[colors.hints.start]
+foreground = "#F2EFE6"
+background = "#8A5200"
+
+[colors.hints.end]
+foreground = "#8A5200"
+background = "#E4DFD1"
+
+[colors.footer_bar]
+foreground = "#15171A"
+background = "#E4DFD1"
+
+[colors.line_indicator]
+foreground = "#F2EFE6"
+background = "#5A5F66"
+
+[colors.vi_mode_cursor]
+text = "#F2EFE6"
+cursor = "#145A9C"
+
+[colors.normal]
+black   = "#15171A"
+red     = "#B3241C"
+green   = "#1A6E31"
+yellow  = "#8A5200"
+blue    = "#145A9C"
+magenta = "#6A3FA0"
+cyan    = "#12687A"
+white   = "#5A5F66"
+
+[colors.bright]
+black   = "#676C73"
+red     = "#96190F"
+green   = "#125A26"
+yellow  = "#6E4100"
+blue    = "#0F4C86"
+magenta = "#573088"
+cyan    = "#0E5565"
+white   = "#15171A"

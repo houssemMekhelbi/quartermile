@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""Lock-screen text (Quarter Mile). No username.
+
+    quartermile-lock-saying         the current line from sayings.txt
+    quartermile-lock-saying date    the scoreboard's date row: DATE, a dotted leader, the date;
+                                    always 62 characters, so in Courier Prime it spans the board
+
+Lines come from ~/.config/hypr/quartermile-day/sayings.txt, one per line. With several
+lines the line changes every 10 minutes; the index comes from the clock.
+"""
+
+import sys
+import time
+from html import escape
+from pathlib import Path
+
+SAYINGS = Path.home() / ".config/hypr/quartermile-day/sayings.txt"
+WIDTH = 62
+
+
+def current():
+    try:
+        lines = [l.strip() for l in SAYINGS.read_text(encoding="utf-8").splitlines()]
+    except OSError:
+        return ""
+    sayings = [l for l in lines if l and not l.startswith("#")]
+    return sayings[int(time.time() // 600) % len(sayings)] if sayings else ""
+
+
+def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "date":
+        day = time.strftime("%A, ") + str(int(time.strftime("%d"))) + time.strftime(" %B")
+        dots = "." * max(3, WIDTH - len("DATE") - len(day) - 2)
+        print(f"<span foreground='#9AA0A8'>DATE</span> <span foreground='#8B887C'>{dots}</span> {escape(day)}")
+    else:
+        print(escape(current()))
+
+
+if __name__ == "__main__":
+    main()

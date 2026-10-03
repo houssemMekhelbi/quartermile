@@ -1,0 +1,9 @@
+Quarter Mile fonts, fetched 2026-09-19 from https://github.com/google/fonts (main):
+  apache/ultra/Ultra-Regular.ttf                      Apache License 2.0 (LICENSE-ultra-apache2.txt)
+  apache/yellowtail/Yellowtail-Regular.ttf            Apache License 2.0 (LICENSE-yellowtail-apache2.txt)
+  ofl/bungee/Bungee-Regular.ttf                       SIL OFL 1.1
+  ofl/librefranklin/LibreFranklin[wght].ttf, -Italic  SIL OFL 1.1
+  ofl/courierprime/CourierPrime-Regular.ttf, -Bold    SIL OFL 1.1
+  ofl/sourcecodepro/SourceCodePro[wght].ttf           SIL OFL 1.1
+  ofl/lalezar/Lalezar-Regular.ttf                     SIL OFL 1.1
+Amiri and IBM Plex Sans Arabic are copied from the base snapshot by make.py.

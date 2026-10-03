@@ -1,0 +1,45 @@
+# Quarter Mile day terminal. Night at 96%, compositor blur behind it.
+
+font-family = Source Code Pro
+font-family = JetBrainsMono Nerd Font
+font-size = 10.5
+adjust-cell-height = 30%
+window-padding-x = 16
+window-padding-y = 16
+window-decoration = none
+background-opacity = 0.96
+background-blur = true
+
+background = #F2EFE6
+foreground = #24272C
+cursor-color = #15171A
+cursor-text = #F2EFE6
+cursor-style = block
+cursor-style-blink = false
+selection-background = #E4DFD1
+selection-foreground = #15171A
+
+# Search and splits in the theme's colours (ghostty's stock yellow and orange otherwise).
+search-background = #145A9C
+search-foreground = #F2EFE6
+search-selected-background = #8A5200
+search-selected-foreground = #F2EFE6
+split-divider-color = #CFCABC
+unfocused-split-fill = #F2EFE6
+
+palette = 0=#15171A
+palette = 1=#B3241C
+palette = 2=#1A6E31
+palette = 3=#8A5200
+palette = 4=#145A9C
+palette = 5=#6A3FA0
+palette = 6=#12687A
+palette = 7=#5A5F66
+palette = 8=#676C73
+palette = 9=#96190F
+palette = 10=#125A26
+palette = 11=#6E4100
+palette = 12=#0F4C86
+palette = 13=#573088
+palette = 14=#0E5565
+palette = 15=#15171A
